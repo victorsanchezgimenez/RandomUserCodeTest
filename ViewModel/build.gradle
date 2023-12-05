@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'alisys.robotica.viewmodel'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 33
+        targetSdk 34
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+
+    //IMPORTS
+    implementation project(':Repository:Users')
+    implementation project(':Network:')
+
+    //CORE
+    implementation "androidx.core:core-ktx:${versionCoreKtx}"
+    implementation "androidx.appcompat:appcompat:${versionAppcompat}"
+
+    //TESTING
+    testImplementation "junit:junit:${versionJunit}"
+    testImplementation "io.mockk:mockk:${versionMockK}"
+    testImplementation "io.insert-koin:koin-test:${versionKoin}"
+    androidTestImplementation "androidx.test.ext:junit:${versionAndroidxTestJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versionEspressoCore}"
+    androidTestImplementation "io.mockk:mockk-android:${versionMockK}"
+    androidTestImplementation "androidx.arch.core:core-testing:${versionCoreTesting}"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-debug:${versionCoroutinesTesting}"
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+
+    //KOIN
+    implementation "io.insert-koin:koin-core:${versionKoin}"
+    implementation "io.insert-koin:koin-android:${versionKoin}"
+    implementation "io.insert-koin:koin-androidx-compose:${versionKoinCompose}"
+}

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RandomUserCodeTest</string>
+    <string name="contacts_title">CONTACTS</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="gender">Gender</string>
+    <string name="registration_date">Registration Date</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+</resources>
+

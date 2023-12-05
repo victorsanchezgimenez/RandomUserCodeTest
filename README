@@ -1,0 +1,49 @@
+FECHA ENTREGA: 05/12/2023
+
+El proyecto se basa en 4 módulos:
+    - Network: Albera toda la lógica de llamada al APIRest, configuración, los datos que se recogen, etc.
+    - Repository: Dentro de repository he creado un submodulo llamado Users, donde pongo el Handler y el usecase para
+      conectarme a este módulo de Network, para tratar y recoger estos datos que me llegan por el APIRest.
+      Es un módulo muy simple que tiene un handler, una interfaz y un usecase de coger los datos.
+    - ViewModel: Aquí tengo la lógica de negocio que conecta entre view y el repository. una es para el handler y el otro
+      (en este caso no haría falta una database) de la funcionalidad de cambio de idioma.
+    - View: Aquí he creado el sistema de navegación entre pantallas, los composables, MainActivity y algunos utils, extensiones
+      e inyección de dependencias.
+
+Con más profundidad me gustaría hablar de algunas cosas que por falta de tiempo no he podido realizar y me hubiese gustado,
+pero debido a que estoy actualmente trabajando y tengo un viaje en el puente, no me hubiese podido poner más tiempo,
+y le he dedicado alrededor de 7h
+
+Por un lado, el flujo es sencillo, cuando inicia la aplicación, aparece una lista de 11 elementos, que son las veces que
+llamo al api rest. El botón para atrás de la primera pantalla no tiene ninguna funcionalidad, ya que me he ceñido lo más
+aproximado posible al diseño del figma.
+
+Luego, los 3 puntos de opciones, simplemente es un cambio de idioma en tiempo real, lo he creado de forma que sea escalable
+y sea facil añadir más idiomas. He evitado los hardcoreos de strings (el idioma se mantiene entre pantallas)
+
+Si cogemos un usuario que aparezca y le damos click, nos manda a la siguiente pantalla con más detalles.
+
+Aquí podemos ver la pantalla que es exactamente igual (o muy parecida que la del figma), he intentado que se pareciese lo máximo
+posible.
+
+Luego, dato importante, desde aquí también se puede cambiar el idioma, cosa que se mantendrá si volvemos hacia atrás.
+
+Sobre la dirección, he intentado utilizar el Maps SDK de Google, lo que pasandole la latitud y longitud (datos que se recogen)
+podría haberlo sacado, pero he puesto un placeholder debido a que para hacer funcionar el SDK hay que usar una API_KEY y
+he de introducir la tarjeta de crédito, y me gustaría evitar lo máximo posible ponerlo para una prueba técnica.
+
+Los botones de edición y photo no he hecho nada con ellos.
+
+Luego, si vemos que tiramos hacia atrás, nos saldrá otra vez la lista de usuarios, pero cambiada, esto es debido
+a que siempre que llego a esta pantalla, se cogen nuevos usuarios.
+Me hubiese gustado hacer una base de datos local y que cuando cargasen los datos, se guardasen y estos estuviesen disponibles en todo
+el ciclo de la aplicación, además de hacer que cuando esta api no tenga conexión o no haya conexión internet, cargase los datos
+de local.
+
+Dejaré unos videos haciendo la ejecución para que se vea el flujo.
+
+He usado inyección de dependencias Koin que es el que suelo usar en mi día a día, y he hecho algunos tests unitarios con MockK.
+
+Muchas gracias por la oportunidad y espero que os guste.
+
+
